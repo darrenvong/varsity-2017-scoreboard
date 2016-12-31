@@ -1,0 +1,62 @@
+*
+  margin: 0
+  box-sizing: border-box
+  font-family: "Archivo Narrow", sans-serif
+
+body
+  width: 1200px
+  margin: 20px auto 0
+  background-color: #333
+  
+  @media only screen
+    @media (max-width: $large-breakpoint) 
+      width: 1024px
+    @media (max-width: $tablet-breakpoint)
+      width: 100%
+
+header
+  background-color: black
+
+img
+  vertical-align: middle
+
+.wrap
+  height: 230px
+  line-height: 230px
+
+  @media only screen
+    @media (max-width: $tablet-breakpoint)
+      height: auto
+      padding: 35px 0
+
+.header-inner
+  width: 1160px
+  height: 230px
+  line-height: 230px
+  margin: 0 auto
+
+  @media only screen
+    @media (max-width: $large-breakpoint)
+      width: 960px
+    @media (max-width: $tablet-breakpoint)
+      width: 577px
+      margin: 0 auto
+      height: auto
+      line-height: normal
+
+.logo
+  width: 25%
+  height: 230px
+  float: left
+
+  img
+    width: 90%
+    display: inline-block
+
+.header-right
+  width: 70%
+  margin: 2px
+  line-height: normal
+  float: right
+
+// End of mock css

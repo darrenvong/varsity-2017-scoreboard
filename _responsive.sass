@@ -1,0 +1,52 @@
+@media only screen
+  @media (max-width: $tablet-breakpoint)
+    .header-right
+      width: 100%
+
+    .logo
+      display: none
+
+    .varsity-winner
+      margin: 20px auto 0
+
+  @media (max-width: $mobile-breakpoint)
+    #team-uni
+      margin: -4px 0 0
+
+    #team-hallam
+      margin: 0 3px 0 0
+
+  @media (max-width: $sm-mobile-breakpoint)
+    .varsity-team-logo
+      width: 60px
+
+    #team-hallam
+      position: absolute
+      top: 0
+      right: 0
+
+    #team-uni
+      position: absolute
+
+    .varsity-scorebar
+      display: block
+      width: 95%
+      margin: 0 auto
+
+    .varsity-score
+      font-size: 24px
+      width: auto
+
+    // Tucks in the hallam score
+    #hallam-score
+      position: absolute
+      top: 0
+      right: 5px
+
+    .varsity-winner
+      margin: 50px auto 0
+
+  @media (max-width: 365px)
+    .varsity-winner
+      font-size: 16px
+      width: 230px
