@@ -2,6 +2,9 @@
   "name": "varsity-2017-scoreboard",
   "version": "1.0.0",
   "description": "Varsity 2017 Scoreboard for the header of the Forge Sport website.",
+  "author": {
+    "name": "Darren Vong"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },

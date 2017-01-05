@@ -16,8 +16,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['lib/<%= pkg.name %>.js'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: '*.js',
+        dest: '*-full.js'
       }
     },
     uglify: {
@@ -26,25 +26,12 @@ module.exports = function(grunt) {
       },
       dist: {
         src: '<%= concat.dist.dest %>',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        dest: 'dist/<%= concat.dist.dest %>.min.js'
       }
     },
     jshint: {
       options: {
         jshintrc: true,
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {},
         reporterOutput: ''
       },
       gruntfile: {
@@ -52,6 +39,9 @@ module.exports = function(grunt) {
       },
       lib_test: {
         src: ['lib/**/*.js', 'test/**/*.js']
+      },
+      dist: {
+        src: 'scoreboard.js'
       }
     },
     qunit: {
@@ -82,7 +72,12 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: './*.css'
+        files: [{
+          expand: true,
+          src: ['./*.css'],
+          dest: './',
+          ext: '.css'
+        }]
       }
     },
     watch: {
@@ -95,8 +90,8 @@ module.exports = function(grunt) {
         tasks: ['jshint:lib_test', 'qunit']
       },
       cssfiles: {
-        files: ['*.sass', '*.css'],
-        tasks: ['sass', 'postcss']
+        files: ['*.sass', '*.css', 'scoreboard.js'],
+        tasks: ['sass', 'postcss', 'jshint:dist']
       }
     }
   });
@@ -111,7 +106,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
 
   // Default task.
-  grunt.registerTask('w', ['watch:cssfiles']);
+  grunt.registerTask('project', ['watch:cssfiles']);
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };

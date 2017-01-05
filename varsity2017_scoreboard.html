@@ -13,6 +13,13 @@
           <img src="http://forgetoday.com/varsity/wp-content/uploads/sites/11/2016/12/forge-sport-cropped.png">
         </div>
         <div class="header-right">
+          <style type="text/css">
+            .uni-animate { -webkit-transform: scaleX(1.5); -ms-transform: scaleX(1.5); transform: scaleX(1.5); }
+
+            .hallam-animate { -webkit-transform: scaleX(0.5); -ms-transform: scaleX(0.5); transform: scaleX(0.5); }
+
+            .score-animate { opacity: 1; }
+          </style>
           <div class="varsity-scoreboard">
             <div class="varsity-sides">
               <figure id="team-uni" class="varsity-team-logo">
@@ -27,18 +34,19 @@
             </div>
             <div class="varsity-scores">
                 <!-- comment hack to get rid of unwanted white space between spans -->
-              <span id="uni-score" class="varsity-score">20</span><!--
+              <span id="uni-score" class="varsity-score">1.5</span><!--
               --><span class="varsity-scorebar">
-                  <span id="win-info-text">38 To Win</span>
+                  <!-- <span id="win-info-text">38 To Win</span> -->
                   <span id="uni-score-bar"></span><span id="hallam-score-bar"></span>
-                </span><span id="hallam-score" class="varsity-score">13</span>
+                </span><span id="hallam-score" class="varsity-score">0.5</span>
             </div>
-            <div class="varsity-winner uni-colour">University of Sheffield Wins</div>
+            <!-- <div class="varsity-winner uni-colour">University of Sheffield Wins</div> -->
           </div>
         </div>
       </div>
     </div>
   </header>
+  <script type="text/javascript" src="scoreboard.js"></script>
 </body>
 </html>
 

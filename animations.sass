@@ -1,0 +1,18 @@
+// Points scored by Uni and Hallam
+$uni-points: 1.5
+$hallam-points: 0.5
+$points-to-win: 41
+
+// Points scored by uni and hallam in percentage out of the total points scored
+// by the two sides so far 
+$uni-points-pc: 2 * $uni-points / ($uni-points + $hallam-points)
+$hallam-points-pc: 2 - $uni-points-pc
+
+.uni-animate
+  transform: scaleX($uni-points-pc)
+
+.hallam-animate
+  transform: scaleX($hallam-points-pc)
+
+.score-animate
+  opacity: 1

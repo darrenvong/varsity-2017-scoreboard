@@ -1,0 +1,7 @@
+.uni-animate { -webkit-transform: scaleX(1.5); -ms-transform: scaleX(1.5); transform: scaleX(1.5); }
+
+.hallam-animate { -webkit-transform: scaleX(0.5); -ms-transform: scaleX(0.5); transform: scaleX(0.5); }
+
+.score-animate { opacity: 1; }
+
+/*# sourceMappingURL=animations.css.map */

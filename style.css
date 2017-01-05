@@ -1,4 +1,4 @@
-* { margin: 0; box-sizing: border-box; font-family: "Archivo Narrow", sans-serif; }
+* { margin: 0; -webkit-box-sizing: border-box; box-sizing: border-box; font-family: "Archivo Narrow", sans-serif; }
 
 body { width: 1200px; margin: 20px auto 0; background-color: #333; }
 @media only screen and (max-width: 1165px) { body { width: 1024px; } }
@@ -22,10 +22,14 @@ img { vertical-align: middle; }
 
 span { display: inline-block; }
 
+.logo { width: 25%; }
+
+.header-right { width: 70%; }
+
 .csmi-varsity-2017-scoreboard { width: 100%; }
 
 .varsity-scoreboard { margin-top: 10px; font-family: "Archivo Narrow", sans-serif; font-weight: bold; color: white; }
-.varsity-scoreboard, .varsity-scoreboard * { box-sizing: border-box; }
+.varsity-scoreboard, .varsity-scoreboard * { -webkit-box-sizing: border-box; box-sizing: border-box; }
 
 .varsity-team-logo { display: inline-block; width: 80px; }
 .varsity-team-logo img { width: 100%; }
@@ -44,24 +48,25 @@ figcaption { text-align: center; font-size: 20px; }
 
 #team-hallam { margin-right: 50px; float: right; }
 
-.varsity-scorebar { height: 40px; width: calc(100% - 136px); position: relative; }
+.varsity-scorebar { height: 40px; width: -webkit-calc(100% - 136px); width: calc(100% - 136px); position: relative; }
 .varsity-scorebar span { height: 100%; }
-.varsity-scorebar:before { content: ""; height: 50px; border: 1px dashed; position: absolute; top: -10px; left: 50%; }
 .varsity-scorebar:after { content: ""; display: table; clear: both; }
 
 .varsity-scores { width: 100%; height: 40px; position: relative; }
 
-.varsity-score { font-size: 30px; padding: 0 10px; width: 68px; height: 40px; line-height: 40px; text-align: center; vertical-align: top; }
+.varsity-score { font-size: 30px; padding: 0 10px; width: 68px; height: 40px; line-height: 40px; text-align: center; vertical-align: top; opacity: 0; -webkit-transition: opacity 0.5s ease-in 0.8s; transition: opacity 0.5s ease-in 0.8s; }
 
-#win-info-text { position: absolute; top: -30px; left: 50%; transform: translateX(-45%); font-size: 16px; text-transform: uppercase; }
+#win-info-text { position: absolute; top: -30px; left: 50%; -webkit-transform: translateX(-45%); -ms-transform: translateX(-45%); transform: translateX(-45%); font-size: 16px; text-transform: uppercase; }
 
 .uni-colour, #uni-score-bar { background-color: #fab123; color: black; }
 
 .hallam-colour, #hallam-score-bar { background-color: #b6004b; color: white; }
 
-[id*="score-bar"] { transition: all 0.3s; }
+[id*="score-bar"] { -webkit-transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94); transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94); width: 50%; -webkit-transform: scaleX(0); -ms-transform: scaleX(0); transform: scaleX(0); }
 
-#hallam-score-bar { float: right; }
+#uni-score-bar { -webkit-transform-origin: left; -ms-transform-origin: left; transform-origin: left; }
+
+#hallam-score-bar { float: right; -webkit-transform-origin: right; -ms-transform-origin: right; transform-origin: right; }
 
 .varsity-winner { width: 300px; text-align: center; text-transform: uppercase; font-size: 20px; padding: 5px 0; margin: 10px auto 0; }
 

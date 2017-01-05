@@ -1,6 +1,12 @@
 span
   display: inline-block
 
+.logo
+  width: 25%
+
+.header-right
+  width: 70%
+
 .csmi-varsity-2017-scoreboard
   width: 100%
 
@@ -61,13 +67,13 @@ figcaption
   span
     height: 100%
 
-  &:before
-    content: ""
-    height: 50px
-    border: 1px dashed
-    position: absolute
-    top: -10px
-    left: 50%
+  // &:before
+  //   content: ""
+  //   height: 50px
+  //   border: 1px dashed
+  //   position: absolute
+  //   top: -10px
+  //   left: 50%
 
   &:after
     content: ""
@@ -87,6 +93,8 @@ figcaption
   line-height: 40px
   text-align: center
   vertical-align: top
+  opacity: 0
+  transition: opacity 0.5s ease-in 0.8s
 
 #win-info-text
   position: absolute
@@ -105,14 +113,19 @@ figcaption
   color: white
 
 [id*="score-bar"]
-  transition: all 0.3s
+  // Quadratic ease-out obtained from playing around with inspector
+  transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  width: 50%
+  transform: scaleX(0)
 
 #uni-score-bar
   @extend .uni-colour
+  transform-origin: left
 
 #hallam-score-bar
   @extend .hallam-colour
   float: right
+  transform-origin: right
 
 .varsity-winner
   width: 300px
