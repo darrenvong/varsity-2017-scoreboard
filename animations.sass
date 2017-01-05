@@ -1,18 +1,22 @@
-// Points scored by Uni and Hallam
-$uni-points: 1.5
-$hallam-points: 0.5
-$points-to-win: 41
+$scorebar-animation-duration: 0.75s
+$score-animation-duration: 0.5s
+$winner-badge-duration: 0.5s
+// The time delay to apply in addition to the prev animation duration
+$delay-delta: 0.1s
 
-// Points scored by uni and hallam in percentage out of the total points scored
-// by the two sides so far 
-$uni-points-pc: 2 * $uni-points / ($uni-points + $hallam-points)
-$hallam-points-pc: 2 - $uni-points-pc
+[id*="score-bar"]
+  // Quadratic ease-out obtained from playing around with inspector
+  transition: all $scorebar-animation-duration cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  width: 50%
+  transform: scaleX(0)
 
-.uni-animate
-  transform: scaleX($uni-points-pc)
+.varsity-score
+  opacity: 0
+  transition: opacity $score-animation-duration ease-in ($scorebar-animation-duration + $delay-delta)
 
-.hallam-animate
-  transform: scaleX($hallam-points-pc)
+.varsity-winner
+  opacity: 0
+  transition: opacity $winner-badge-duration ease-in ($scorebar-animation-duration + $score-animation-duration + 5 * $delay-delta)
 
-.score-animate
+.score-animate, .winner-animate
   opacity: 1

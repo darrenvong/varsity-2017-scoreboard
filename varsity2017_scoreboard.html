@@ -13,12 +13,12 @@
           <img src="http://forgetoday.com/varsity/wp-content/uploads/sites/11/2016/12/forge-sport-cropped.png">
         </div>
         <div class="header-right">
-          <style type="text/css">
-            .uni-animate { -webkit-transform: scaleX(1.5); -ms-transform: scaleX(1.5); transform: scaleX(1.5); }
-
-            .hallam-animate { -webkit-transform: scaleX(0.5); -ms-transform: scaleX(0.5); transform: scaleX(0.5); }
-
-            .score-animate { opacity: 1; }
+          <!-- START COPYING HERE -->
+          <style id="scoreboard-style" type="text/css">
+            [id*="score-bar"] { -webkit-transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94); transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94); width: 50%; -webkit-transform: scaleX(0); -ms-transform: scaleX(0); transform: scaleX(0); }
+            .varsity-score { opacity: 0; -webkit-transition: opacity 0.5s ease-in 0.85s; transition: opacity 0.5s ease-in 0.85s; }
+            .varsity-winner { opacity: 0; -webkit-transition: opacity 0.5s ease-in 1.75s; transition: opacity 0.5s ease-in 1.75s; }
+            .score-animate, .winner-animate { opacity: 1; }
           </style>
           <div class="varsity-scoreboard">
             <div class="varsity-sides">
@@ -42,6 +42,7 @@
             </div>
             <!-- <div class="varsity-winner uni-colour">University of Sheffield Wins</div> -->
           </div>
+          <!-- STOP COPYING HERE -->
         </div>
       </div>
     </div>

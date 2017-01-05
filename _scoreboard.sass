@@ -93,8 +93,6 @@ figcaption
   line-height: 40px
   text-align: center
   vertical-align: top
-  opacity: 0
-  transition: opacity 0.5s ease-in 0.8s
 
 #win-info-text
   position: absolute
@@ -111,12 +109,6 @@ figcaption
 .hallam-colour
   background-color: $hallam-colour
   color: white
-
-[id*="score-bar"]
-  // Quadratic ease-out obtained from playing around with inspector
-  transition: all 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-  width: 50%
-  transform: scaleX(0)
 
 #uni-score-bar
   @extend .uni-colour

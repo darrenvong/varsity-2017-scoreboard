@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          src: ['*.scss', '*.sass'],
+          src: ['*.sass'],
           dest: './',
           ext: '.css'
         }]
@@ -76,7 +76,8 @@ module.exports = function(grunt) {
           expand: true,
           src: ['./*.css'],
           dest: './',
-          ext: '.css'
+          ext: '.css',
+          extDot: 'prefixed'
         }]
       }
     },
@@ -90,8 +91,12 @@ module.exports = function(grunt) {
         tasks: ['jshint:lib_test', 'qunit']
       },
       cssfiles: {
-        files: ['*.sass', '*.css', 'scoreboard.js'],
-        tasks: ['sass', 'postcss', 'jshint:dist']
+        files: ['*.sass', '*.css'],
+        tasks: ['sass', 'postcss']
+      },
+      js: {
+        files: ['*.js'],
+        tasks: ['jshint:dist']
       }
     }
   });
@@ -106,7 +111,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
 
   // Default task.
-  grunt.registerTask('project', ['watch:cssfiles']);
+  grunt.registerTask('css', ['watch:cssfiles']);
+  grunt.registerTask('js', ['watch:js']);
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
 };
