@@ -75,9 +75,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: ['./*.css'],
-          dest: './',
-          ext: '.css',
-          extDot: 'prefixed'
+          dest: 'dist/',
+          ext: '.css'
         }]
       }
     },
@@ -85,10 +84,6 @@ module.exports = function(grunt) {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
       },
       cssfiles: {
         files: ['*.sass', '*.css'],
@@ -102,9 +97,9 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
+  // grunt.loadNpmTasks('grunt-contrib-concat');
+  // grunt.loadNpmTasks('grunt-contrib-uglify');
+  // grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
@@ -113,6 +108,6 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('css', ['watch:cssfiles']);
   grunt.registerTask('js', ['watch:js']);
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+  grunt.registerTask('default', ['watch']);
 
 };

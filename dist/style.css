@@ -48,7 +48,7 @@ figcaption { text-align: center; font-size: 20px; }
 
 #team-hallam { margin-right: 50px; float: right; }
 
-.varsity-scorebar { height: 40px; width: -webkit-calc(100% - 136px); width: calc(100% - 136px); position: relative; }
+.varsity-scorebar { height: 40px; width: -webkit-calc(100% - 136px); width: calc(100% - 136px); position: relative; background-color: #111; }
 .varsity-scorebar span { height: 100%; }
 .varsity-scorebar:after { content: ""; display: table; clear: both; }
 
