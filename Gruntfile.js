@@ -16,8 +16,8 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: '*.js',
-        dest: '*-full.js'
+        src: 'js/*.js',
+        dest: 'js/*-full.js'
       }
     },
     uglify: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         src: ['lib/**/*.js', 'test/**/*.js']
       },
       dist: {
-        src: 'scoreboard.js'
+        src: 'js/*.js'
       }
     },
     qunit: {
@@ -55,8 +55,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          src: ['*.sass'],
-          dest: './',
+          cwd: 'css/',
+          src: ['**/*.sass'],
+          dest: 'css/',
           ext: '.css'
         }]
       }
@@ -74,8 +75,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          src: ['./*.css'],
-          dest: 'dist/',
+          cwd: 'css/',
+          src: ['**/*.css'],
+          dest: 'dist/css/',
           ext: '.css'
         }]
       }
@@ -86,11 +88,11 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       cssfiles: {
-        files: ['*.sass', '*.css'],
+        files: ['css/**/*.sass', 'css/**/*.css'],
         tasks: ['sass', 'postcss']
       },
       js: {
-        files: ['*.js'],
+        files: ['js/*.js'],
         tasks: ['jshint:dist']
       }
     }

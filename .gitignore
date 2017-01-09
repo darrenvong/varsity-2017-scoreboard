@@ -2,3 +2,5 @@
 *.css.map
 node_modules/
 ./*.css
+dist/
+css/*.css
