@@ -51,12 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var hallamBar = document.querySelector("#hallam-score-bar");
   var scores = document.querySelectorAll(".varsity-score");
   var winner = document.querySelector(".varsity-winner");
-  setTimeout(function() {
-    uniBar.classList.add("uni-animate");
-    hallamBar.classList.add("hallam-animate");
-    for (var i = 0; i < scores.length; i++) {
-      scores[i].classList.add("score-animate");
-    }
-    if (winner) { winner.classList.add("winner-animate"); }
-  }, 1000);
+  uniBar.classList.add("uni-animate");
+  hallamBar.classList.add("hallam-animate");
+  for (var i = 0; i < scores.length; i++) {
+    scores[i].classList.add("score-animate");
+  }
+  if (winner) { winner.classList.add("winner-animate"); }
 });
