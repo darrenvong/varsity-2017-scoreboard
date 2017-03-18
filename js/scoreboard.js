@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
    * - "overall": percentage width calculated is based on the total points available out of
    * all Varsity events this year.
    *
-   * If the "overall" context is given, then the number of points required to win Varsity should
-   * be given in the 4th `pointsToWin` parameter.
+   * If the "overall" context is given, then the number of points available in the whole Varsity
+   * event should be given in the 4th `total` parameter.
    */
-  function ScoreBarWidthCalc(uniScore, hallamScore, context, pointsToWin) {
+  function ScoreBarWidthCalc(uniScore, hallamScore, context, total) {
     this.uniScore = uniScore;
     this.hallamScore = hallamScore;
     this.context = context || "relative";
-    this.total = (this.context === "relative")? (this.uniScore + this.hallamScore) : (2 * pointsToWin);
+    this.total = (this.context === "relative")? (this.uniScore + this.hallamScore) : total;
   }
 
   ScoreBarWidthCalc.prototype = {
@@ -36,25 +36,29 @@ document.addEventListener("DOMContentLoaded", function() {
     prefixedRule += rule;
     return prefixedRule;
   }
-
+  
+  function applyAnimation() {
+    var uniBar = document.querySelector("#uni-score-bar");
+    var hallamBar = document.querySelector("#hallam-score-bar");
+    var scores = document.querySelectorAll(".varsity-score");
+    var winner = document.querySelector(".varsity-winner");
+    uniBar.classList.add("uni-animate");
+    hallamBar.classList.add("hallam-animate");
+    for (var i = 0; i < scores.length; i++) {
+        scores[i].classList.add("score-animate");
+    }
+    if (winner) { winner.classList.add("winner-animate"); }
+  }
+  var TOTAL_POINTS = 80;
   var uniScore = +(document.getElementById("uni-score").textContent);
   var hallamScore = +(document.getElementById("hallam-score").textContent);
   var calculator = (document.querySelector("#win-info-text"))?
-                      new ScoreBarWidthCalc(uniScore, hallamScore, "overall", 40) :
+                      new ScoreBarWidthCalc(uniScore, hallamScore, "overall", TOTAL_POINTS) :
                       new ScoreBarWidthCalc(uniScore, hallamScore);
 
   var stylesheet = document.getElementById("scoreboard-style");
   stylesheet.textContent += ".uni-animate {" + prefixTransform("transform: scaleX(" + calculator.getUniWidth() + ");") + "}";
   stylesheet.textContent += ".hallam-animate {" + prefixTransform("transform: scaleX(" + calculator.getHallamWidth() + ");") + "}";
 
-  var uniBar = document.querySelector("#uni-score-bar");
-  var hallamBar = document.querySelector("#hallam-score-bar");
-  var scores = document.querySelectorAll(".varsity-score");
-  var winner = document.querySelector(".varsity-winner");
-  uniBar.classList.add("uni-animate");
-  hallamBar.classList.add("hallam-animate");
-  for (var i = 0; i < scores.length; i++) {
-    scores[i].classList.add("score-animate");
-  }
-  if (winner) { winner.classList.add("winner-animate"); }
+  setTimeout(applyAnimation, 1500);
 });
