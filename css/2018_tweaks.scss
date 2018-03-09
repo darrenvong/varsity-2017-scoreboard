@@ -1,0 +1,88 @@
+.td-header-sp-recs { width: 70%; }
+
+@media only screen and (min-width: 1019px) {
+    .td-header-sp-recs {
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1018px) {
+    .td-header-sp-recs {
+        width: 60%;
+    }
+
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1018px) {
+    .Scoreboard {
+        width: 125%;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 899px) {
+    .td-header-style-1 .td-header-sp-logo {
+        margin: 14px 28px 0 0;
+    }
+    
+    .Scoreboard {
+        width: 110%;
+    }
+
+    #team-uni {
+        margin-left: 0;
+    }
+
+    #team-hallam {
+        margin-right: 0;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .td-header-rec-wrap {
+        margin: 0;
+        display: block;
+    }
+    
+    .varsity-sides {
+        margin-bottom: 60px;
+    }
+    
+    #team-uni {
+        margin-left: 0;
+    }
+
+    #team-hallam {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #varsity-logo {
+        width: calc(0.8 * 197px);
+    }
+
+    .varsity-team-logo {
+        width: 60px;
+    }
+
+    .varsity-score {
+        font-size: 24px;
+    }
+    
+    .varsity-scores {
+        left: -20px;
+        width: calc(100% + 40px);
+    }
+
+    #win-info-text {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #varsity-logo {
+        width: calc(0.7 * 197px);
+    }
+}
