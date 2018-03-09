@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-
   /** Given the `points` scored out of the `total` points scored,
-   * This ScoreBarWidthCalc 'class' function takes the points scored by Uni and Hallam, and
-   * returns the functions which calculate the decimal percentage width of each side's
-   * scorebar in the given `context`. 'context' defaults to "relative". (see explanation below)
+   * creating a copy of ScoreBarWidthCalc using the below function, which takes the points scored by
+   * Uni and Hallam, enable additional functions attached to the calculator "object" which calculate
+   * the decimal percentage width of each side's scorebar in the given `context`. Additionally,
+   * it also has a function which works out the points required to win based on the previous winner
+   * provided. 'context' defaults to "relative" (see explanation below).
    * Possible contexts:
    * - "relative": percentage width calculated is based on the total points scored by both sides
    * so far.
@@ -23,7 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
   ScoreBarWidthCalc.prototype = {
     // Percentage width calculated here is double its actual value since each bar's initial width is 50% (0.5)
     getUniWidth: function() { return (2 * this.uniScore / this.total).toFixed(2); },
-    getHallamWidth: function() {return (2 * this.hallamScore / this.total).toFixed(2); }    
+    getHallamWidth: function() {return (2 * this.hallamScore / this.total).toFixed(2); },
+    getPointsToWin: function() {return (this.context === "overall")? (this.total / 2) + 0.5 : "Unknown";}
   };
 
   function prefixTransform(rule) {
@@ -49,12 +51,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if (winner) { winner.classList.add("winner-animate"); }
   }
-  var TOTAL_POINTS = 80;
+  
+  function appendWinnerBadge(uniScore, hallamScore, calculator) {
+      var scoreboard = document.querySelector(".varsity-scoreboard");
+      if (uniScore >= calculator.getPointsToWin()) {
+          jQuery("<div class='varsity-winner uni-colour'>University of Sheffield Win</div>").appendTo(scoreboard);
+      }
+      else if (hallamScore >= calculator.getPointsToWin()) {
+          jQuery("<div class='varsity-winner hallam-colour'>Sheffield Hallam Win</div>").appendTo(scoreboard);
+      }
+  }
+  var totalPoints = +(document.querySelector(".varsity-scoreboard").dataset.overallPoints);
   var uniScore = +(document.getElementById("uni-score").textContent);
   var hallamScore = +(document.getElementById("hallam-score").textContent);
-  var calculator = (document.querySelector("#win-info-text"))?
-                      new ScoreBarWidthCalc(uniScore, hallamScore, "overall", TOTAL_POINTS) :
-                      new ScoreBarWidthCalc(uniScore, hallamScore);
+  var winInfoText = document.querySelector("#win-info-text");
+  if (winInfoText) {
+      var calculator = new ScoreBarWidthCalc(uniScore, hallamScore, "overall", totalPoints);
+      winInfoText.textContent = calculator.getPointsToWin() + " To Win";
+      appendWinnerBadge(uniScore, hallamScore, calculator);
+  }
+  else { var calculator = new ScoreBarWidthCalc(uniScore, hallamScore); }
 
   var stylesheet = document.getElementById("scoreboard-style");
   stylesheet.textContent += ".uni-animate {" + prefixTransform("transform: scaleX(" + calculator.getUniWidth() + ");") + "}";
